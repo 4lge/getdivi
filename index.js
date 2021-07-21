@@ -3,15 +3,15 @@ const fs = require('fs');
 const googleIt = require('google-it-safesearch')
 var moment = require('moment');
 
-var a = moment('2020-09-01');
-var b = moment('2020-11-30');
+var a = moment('2020-08-01');
+var b = moment('2020-12-31');
 
 const options = {
   'limit': 1,
   'only-urls': true,
   'disableConsole': true,
 };
-const urls=Array();
+const files=Array();
 
 async function sleep(millis) {
   return new Promise(resolve => setTimeout(resolve, millis));
@@ -20,23 +20,19 @@ async function sleep(millis) {
 for (var m = moment(a); m.diff(b, 'days') <= 0; m.add(1, 'days')) {
   d = m.format('YYYY-MM-DD');
   console.log(d);
-  dl='divi-intensivregister-'+d+'-12-15.csv';
-  urls.push(dl);
+  // https://www.divi.de/joomlatools-files/docman-files/divi-intensivregister-tagesreports-csv/DIVI-Intensivregister_2020-11-21_12-15.csv
+  dl='DIVI-Intensivregister_'+d+'_12-15.csv';
+  files.push(dl);
 }
 
-urls.forEach(element => {
+files.forEach(f => {
+  url='https://www.divi.de/joomlatools-files/docman-files/divi-intensivregister-tagesreports-csv/'+f;
   sleep(1000+4000*Math.random());
-  googleIt({ options, 'query': element }).then(results => {
-    // access to results object here
-    url = results[0].link;
-    console.log(url);
-    sleep(1000);
-    https.get(url, resp => resp.pipe(fs.createWriteStream('./data/'+element)));
-    //  print(results[0]);
-  }).catch(e => {
-    console.log(element);  
+  try {
+  https.get(url, resp => resp.pipe(fs.createWriteStream('./data/'+f)));
+  } catch(e) {
+    console.log(url);  
     console.log(e);
     // any possible errors that might have occurred (like no Internet connection)
-  })
-});
-
+  }
+})
