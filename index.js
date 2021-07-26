@@ -3,8 +3,14 @@ const fs = require('fs');
 const googleIt = require('google-it-safesearch')
 var moment = require('moment');
 
-var a = moment('2020-08-01');
-var b = moment('2020-12-31');
+//var a = moment('2020-06-05');
+//var b = moment('2020-07-31');
+//var a = moment('2020-08-01');
+//var b = moment('2020-12-31');
+//var a = moment('2021-01-01');
+//var b = moment('2021-06-30');
+var a = moment('2021-07-01');
+var b = moment('2021-07-24');
 
 const options = {
   'limit': 1,
