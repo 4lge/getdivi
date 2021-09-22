@@ -9,8 +9,8 @@ var moment = require('moment');
 //var b = moment('2020-12-31');
 //var a = moment('2021-01-01');
 //var b = moment('2021-06-30');
-var a = moment('2021-07-01');
-var b = moment('2021-07-24');
+var a = moment('2020-06-05');
+var b = moment('2021-09-20');
 
 const options = {
   'limit': 1,
@@ -35,7 +35,7 @@ files.forEach(f => {
   url='https://www.divi.de/joomlatools-files/docman-files/divi-intensivregister-tagesreports-csv/'+f;
   sleep(1000+4000*Math.random());
   try {
-  https.get(url, resp => resp.pipe(fs.createWriteStream('./data/'+f)));
+    https.get(url, resp => resp.pipe(fs.createWriteStream('./data/'+f)));
   } catch(e) {
     console.log(url);  
     console.log(e);

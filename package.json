@@ -9,6 +9,12 @@
   "keywords": [
     "divi"
   ],
+  "scripts": {
+    "get" : "node index.js" ,
+    "clean" : "find data -name \\*.csv -type f -exec grep -q -l 'Seite nicht gefunden' {} \\; -print|xargs /bin/rm -f",
+    "pdf" : "R --vanilla --no-save < analysis.R",
+    "merge" : "node merge.js"
+  },
   "author": "Albrecht Gebhardt",
   "license": "ISC",
   "dependencies": {
