@@ -16,7 +16,7 @@
     "merge" : "node merge.js"
   },
   "author": "Albrecht Gebhardt",
-  "license": "ISC",
+  "license": "GPL",
   "dependencies": {
     "google-it-safesearch": "^1.6.2",
     "moment": "^2.29.1",
