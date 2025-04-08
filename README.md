@@ -5,5 +5,11 @@ prerequisite: R and some POSIX tools: find, grep, xargs, rm
 
 npm install
 
-npm run get clean pdf merge
+Files can no longer be deownloaded
+
+ˋ# npm run get clean pdf mergeˋ
+
+so only run the analysis of the already stored files in data/:
+
+ˋnpm run pdf mergeˋ
 
