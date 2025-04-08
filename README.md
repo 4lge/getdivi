@@ -5,7 +5,7 @@ prerequisite: R and some POSIX tools: find, grep, xargs, rm
 
 npm install
 
-Files can no longer be deownloaded
+Files can no longer be downloaded
 
 ˋ# npm run get clean pdf mergeˋ
 
